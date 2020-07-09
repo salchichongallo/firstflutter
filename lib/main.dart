@@ -28,29 +28,6 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Container _buildTextSection() {
-    return Container(
-      padding: const EdgeInsets.all(32),
-      child: Text(
-        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-        'Alps. Situated 1,578 meters above sea level, it is one of the '
-        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-        'half-hour walk through pastures and pine forest, leads you to the '
-        'lake, which warms to 20 degrees Celsius in the summer. Activities '
-        'enjoyed here include rowing, and riding the summer toboggan run.',
-        softWrap: true,
-      ),
-    );
-  }
-
-  _buildButtonSection(Color color) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      _buildButtonColumn(Icons.phone, 'CALL', color),
-      _buildButtonColumn(Icons.near_me, 'ROUTE', color),
-      _buildButtonColumn(Icons.share, 'SHARE', color),
-    ]);
-  }
-
   _buildImageSection() {
     return Image.asset(
       'assets/lake.jpg',
@@ -91,6 +68,14 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  _buildButtonSection(Color color) {
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      _buildButtonColumn(Icons.phone, 'CALL', color),
+      _buildButtonColumn(Icons.near_me, 'ROUTE', color),
+      _buildButtonColumn(Icons.share, 'SHARE', color),
+    ]);
+  }
+
   _buildButtonColumn(IconData icon, String label, Color color) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -107,6 +92,21 @@ class MyApp extends StatelessWidget {
               )),
         ),
       ],
+    );
+  }
+
+  _buildTextSection() {
+    return Container(
+      padding: const EdgeInsets.all(32),
+      child: Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+        'Alps. Situated 1,578 meters above sea level, it is one of the '
+        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+        'half-hour walk through pastures and pine forest, leads you to the '
+        'lake, which warms to 20 degrees Celsius in the summer. Activities '
+        'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
     );
   }
 }
