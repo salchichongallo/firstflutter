@@ -58,11 +58,7 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.star, color: Colors.red[500], size: 32),
-          Text(
-            '41',
-            style: TextStyle(fontSize: 20),
-          ),
+          FavoriteWidget(),
         ],
       ),
     );
@@ -108,5 +104,44 @@ class MyApp extends StatelessWidget {
         softWrap: true,
       ),
     );
+  }
+}
+
+class FavoriteWidget extends StatefulWidget {
+  @override
+  createState() => _FavoriteWidgetState();
+}
+
+class _FavoriteWidgetState extends State<FavoriteWidget> {
+  bool _isFavorited = true;
+  int _favoriteCount = 41;
+
+  @override
+  build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          child: IconButton(
+              iconSize: 32,
+              icon: _isFavorited ? Icon(Icons.star) : Icon(Icons.star_border),
+              onPressed: _toggleFavorite,
+              color: Colors.amber[600]),
+        ),
+        SizedBox(width: 18, child: Container(child: Text('$_favoriteCount'))),
+      ],
+    );
+  }
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _favoriteCount -= 1;
+        _isFavorited = false;
+      } else {
+        _favoriteCount += 1;
+        _isFavorited = true;
+      }
+    });
   }
 }
